@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Dhaka',
 
     /*
     |--------------------------------------------------------------------------
@@ -232,7 +232,7 @@ return [
 
         // 'DataTables' => Yajra\DataTables\DataTablesServiceProvider::class,
         // 'Datatables' => Yajra\DataTables\Facades\DataTables::class
-        
+
         'Image' => Intervention\Image\Facades\Image::class,
     ],
 
