@@ -33,7 +33,7 @@
                     <input id="editId" name="editId" type="hidden" value='{{isset($expenseses->id)?$expenseses->id:" "}}'>
                     <div class="form-group col-md-4 col-lg-4" style="margin-bottom:0px;">
                         <label for="exampleInputPrice" class="required-field">Amount</label>
-                        <input type="text" class="form-control" id="amount" name="amount" value="{{isset($expenseses->amount)?$expenseses->amount:''}}" required>
+                        <input type="number" step=".01" class="form-control" id="amount" name="amount" value="{{isset($expenseses->amount)?$expenseses->amount:''}}" required>
                         <span class='error' id="amount_error" ></span>
                     </div>
                     <div class="form-group col-md-4 col-lg-4">
@@ -74,8 +74,12 @@
                     <td>{{ $data->purpose }}</td>
                     <td>{{ $data->receipt }}</td>
                     <td role="row">
-                        <button class="btn btn-primary"><a href="{{route('edit-expenses', ['id' => $data->id])}}" style="color:#fff">Edit</a></button>
-                        <button class="btn btn-danger"><a href="{{route('expenses-delete', ['id' => $data->id])}}" style="color:#fff">Delete</a></button>
+                        <button class="btn btn-primary">
+                            <a href="{{route('edit-expenses', ['id' => $data->id])}}" style="color:#fff">Edit</a>
+                        </button>
+                        <button class="btn btn-danger">
+                            <a href="{{route('expenses-delete', ['id' => $data->id])}}" onclick="return confirm('Are you sure you want to delete?');" style="color:#fff">Delete</a>
+                        </button>
                     </td>
                 </tr>
                 @endforeach
