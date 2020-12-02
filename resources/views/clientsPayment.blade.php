@@ -34,7 +34,7 @@
                     <div class="col-md-12">
                         <input id="editId" name="editId" type="hidden" value='{{isset($clientsPayment->id)?$clientsPayment->id:" "}}'>
                         <div class="form-group row col-md-12" >
-                            <div class="col-md-6" >
+                            <div class="col-md-4" >
                                 <label for="exampleInputPrice">Client Name</label>
                                 <select class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="clients_name_id" name="clients_name_id" onchange="getProjects()" required>
                                     @if(isset($clientsPayment->clients_name_id))
@@ -51,7 +51,7 @@
                                 </select>
                                 <span class='error' id="clientsNameerror" ></span>
                             </div>
-                            <div class="col-md-6" >
+                            <div class="col-md-4" >
                                 <label for="exampleInputPrice">Project Name</label>
                                 @if(isset($clientsPayment->projects_name_id))
                                     <select class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="Projects_name" name="projects_name_id">
@@ -64,8 +64,6 @@
                                 @endif
                                 <span class='error' id="projectsNameError" ></span>
                             </div>
-                        </div>
-                        <div class="form-group row col-md-12" >
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputPrice">Payment(BDT)</label>
@@ -73,6 +71,8 @@
                                     <span class='error' id="Payments_bdt_error"></span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-group row col-md-12" >
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputPrice">Payment(USD)</label>
@@ -85,6 +85,13 @@
                                     <label for="exampleInputPrice">Payment(JPY)</label>
                                     <input type="number" class="form-control" id="Payments_jpy" placeholder="" name="payment_jpy" value="{{isset($clientsPayment->payment_jpy)?$clientsPayment->payment_jpy:''}}">
                                     <span class='error' id="Payments_bdt_error"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="note">Note</label>
+                                    <textarea class="form-control" id="note" placeholder="" name="note">{{isset($clientsPayment->note)?$clientsPayment->note:''}}</textarea>
+                                    <span class='error' id="note_error"></span>
                                 </div>
                             </div>
                         </div>
@@ -108,6 +115,7 @@
                     <th>Payment(BDT)</th>
                     <th>Payment(USD)</th>
                     <th>Payment(JPY)</th>
+                    <th>Note</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -120,6 +128,7 @@
                     <td>{{ $data->payment_bdt }}</td>
                     <td>{{ $data->payment_usd }}</td>
                     <td>{{ $data->payment_jpy }}</td>
+                    <td>{{ $data->note }}</td>
                     <td role="row">
                         <button class="btn btn-primary"><a href="{{route('edit-clients-payments', ['id' => $data->id])}}" style="color:#fff">Edit</a></button>
                         <button class="btn btn-danger"><a href="{{route('delete-clients-payments', ['id' => $data->id])}}" style="color:#fff">Delete</a></button>

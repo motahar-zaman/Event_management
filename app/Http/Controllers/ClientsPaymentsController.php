@@ -42,6 +42,7 @@ class ClientsPaymentsController extends Controller
             $clientsPayments->payment_usd = $request->payment_usd;
             $clientsPayments->payment_bdt = $request->payment_bdt;
             $clientsPayments->payment_jpy = $request->payment_jpy;
+            $clientsPayments->note = $request->note;
             $clientsPayments->save();
             return redirect()->back()->with( 'success' , 'Successfully edited your Client Payment.');
 
@@ -52,6 +53,7 @@ class ClientsPaymentsController extends Controller
             $clientsPayments->payment_usd = $request->payment_usd;
             $clientsPayments->payment_bdt = $request->payment_bdt;
             $clientsPayments->payment_jpy = $request->payment_jpy;
+            $clientsPayments->note = $request->note;
             $clientsPayments->save();
             return redirect()->back()->with( 'success' , 'Successfully created new Client Payment.');
         }
