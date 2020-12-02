@@ -67,7 +67,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputPrice">Payment(BDT)</label>
-                                    <input type="number" class="form-control" id="Payments_bdt" placeholder="" name="payment_bdt" value="{{isset($clientsPayment->payment_bdt)?$clientsPayment->payment_bdt:''}}" required>
+                                    <input type="number" step="0.01" class="form-control" id="Payments_bdt" name="payment_bdt" value="{{isset($clientsPayment->payment_bdt)?$clientsPayment->payment_bdt:''}}" required>
                                     <span class='error' id="Payments_bdt_error"></span>
                                 </div>
                             </div>
@@ -76,14 +76,14 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputPrice">Payment(USD)</label>
-                                    <input type="number" class="form-control" id="Payments_usd" placeholder="" name="payment_usd" value="{{isset($clientsPayment->payment_usd)?$clientsPayment->payment_usd:''}}">
+                                    <input type="number" step="0.01" class="form-control" id="Payments_usd" name="payment_usd" value="{{isset($clientsPayment->payment_usd)?$clientsPayment->payment_usd:''}}">
                                     <span class='error' id="Payments_usd_error"></span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputPrice">Payment(JPY)</label>
-                                    <input type="number" class="form-control" id="Payments_jpy" placeholder="" name="payment_jpy" value="{{isset($clientsPayment->payment_jpy)?$clientsPayment->payment_jpy:''}}">
+                                    <input type="number" step="0.01" class="form-control" id="Payments_jpy" name="payment_jpy" value="{{isset($clientsPayment->payment_jpy)?$clientsPayment->payment_jpy:''}}">
                                     <span class='error' id="Payments_bdt_error"></span>
                                 </div>
                             </div>
