@@ -96,7 +96,7 @@
                 @foreach($projects as $k => $data)
                 <tr role="row" cla  ss="odd">
                     <td>{{ $data->created_at }}</td>
-                    <td>{{ $data->project_name }}</td>
+                    <td>{{ $data->name }}</td>
                     <td>{{ $data->clients->name }}</td>
                     <td>{{ $data->version_control }}</td>
                     <td>{{ $data->repository }}</td>
