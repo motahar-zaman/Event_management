@@ -128,7 +128,7 @@
                         <tr role="row" cla  ss="odd">
                             <td>{{ $data->created_at }}</td>
                             <td>{{ $data->client_name }}</td>
-                            <td>{{ $data->name }}</td>
+                            <td>{{ $data->project_name }}</td>
                             <td>{{ $data->ip_address }}</td>
                             <td>{{ $data->url }}</td>
                             <td>{{ $data->user_name }}</td>
