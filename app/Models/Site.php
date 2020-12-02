@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Site extends Model{
 
-    protected $table = 'site';
+    protected $table = 'sites';
     protected $primaryKey = 'id';
 
 }
