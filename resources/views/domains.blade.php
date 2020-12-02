@@ -30,7 +30,7 @@
                     {{ csrf_field() }}
                     <div class="form-group row">
                         <div class="col-md-3">
-                            <label for="clientName">Client Name</label>
+                            <label for="clientName" class="required-field">Client Name</label>
                             <select class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="clientName" name="clientName" required>
                                 <option value="0">Select</option>
                                 @foreach($clients as $client)
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="col-md-3">
-                            <label for="projectName">Project Name</label>
+                            <label for="projectName" class="required-field">Project Name</label>
                             <select class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="projectName" name="projectName" required>
                                 <option value="0">Select</option>
                                 @foreach($projects as $project)
@@ -49,31 +49,31 @@
                             </select>
                         </div>
                         <div class="col-md-3">
-                            <label for="url">URL</label>
+                            <label for="url" class="required-field">URL</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="url" name="url" required/>
                         </div>
                         <div class="col-md-3">
-                            <label for="user">User Name</label>
+                            <label for="user" class="required-field">User Name</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="user" name="user" required/>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-3">
-                            <label for="password">Password</label>
+                            <label for="password" class="required-field">Password</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="password" name="password" required/>
                         </div>
 
                         <div class="col-md-3">
-                            <label for="domain">Domain</label>
+                            <label for="domain" class="required-field">Domain</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="domain" name="domain" required/>
                         </div>
                         <div class="col-md-3">
-                            <label for="reg">Registration Date</label>
+                            <label for="reg" class="required-field">Registration Date</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="reg" name="reg" required/>
                         </div>
                         <div class="col-md-3">
-                            <label for="expire">Expiry Date</label>
+                            <label for="expire" class="required-field">Expiry Date</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="expire" name="expire" required/>
                         </div>
                     </div>

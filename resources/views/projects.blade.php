@@ -33,12 +33,12 @@
                     <div class="col-md-9">
                         <div class="form-group row col-md-9" >
                             <div class="col-md-6">
-                                <label for="projectName">Project Name</label>
+                                <label for="projectName" class="required-field">Project Name</label>
                                 <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="projectName" name="projectName" required>
                                 <span class='error' id="Projects_name_error" ></span>
                             </div>
                             <div class="col-md-6">
-                                <label for="clientName">Client Name</label>
+                                <label for="clientName" class="required-field">Client Name</label>
                                 <select class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="clientName" name="clientName" required>
                                     <option value="">Select</option>
                                     @foreach($clients as $client)

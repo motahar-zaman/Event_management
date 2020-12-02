@@ -49,17 +49,17 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="url">Site URL</label>
+                                    <label for="url" class="required-field">Site URL</label>
                                     <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="url" name="url" required/>
                                 </div>
                             </div>
                             <div class="form-group row col-md-12">
                                 <div class="col-md-4">
-                                    <label for="user">User Name</label>
+                                    <label for="user" class="required-field">User Name</label>
                                     <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="user" name="user" required/>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="password">Password</label>
+                                    <label for="password" class="required-field">Password</label>
                                     <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="password" name="password" required/>
                                 </div>
                                 <div class="col-md-4">

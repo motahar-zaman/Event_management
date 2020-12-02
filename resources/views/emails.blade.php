@@ -52,11 +52,11 @@
                             </div>
                             <div class="form-group row col-md-9">
                                 <div class="col-md-6">
-                                    <label for="email">Email</label>
+                                    <label for="email" class="required-field">Email</label>
                                     <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="email" name="email" required/>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="password">Password</label>
+                                    <label for="password" class="required-field">Password</label>
                                     <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="password" name="password" required/>
                                 </div>
                             </div>

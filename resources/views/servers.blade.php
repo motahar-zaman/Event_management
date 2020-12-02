@@ -50,24 +50,24 @@
                         </div>
 
                         <div class="col-md-3">
-                            <label for="ip">IP Address</label>
+                            <label for="ip" class="required-field">IP Address</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="ip" name="ip" required/>
                         </div>
 
                         <div class="col-md-3">
-                            <label for="url">URL</label>
+                            <label for="url" class="required-field">URL</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="url" name="url" required/>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-3">
-                            <label for="user">User</label>
+                            <label for="user" class="required-field">User</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="user" name="user" required/>
                         </div>
 
                         <div class="col-md-3">
-                            <label for="password">Password</label>
+                            <label for="password" class="required-field">Password</label>
                             <input class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="password" name="password" required/>
                         </div>
 

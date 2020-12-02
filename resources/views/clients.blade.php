@@ -34,24 +34,25 @@
             <h3 class="box-title text-success m-b-0">Clients</h3>
             <p class="text-muted m-b-30">List of all Clients</p>
         </div>
-        <div class="col-mod-4 col-lg-4">
+        <div class="col-mod-7 col-lg-7">
             <form action="{{route('add-clients')}}" method="post" enctype="multipart/form-data" id="clientsForm">
                 {{ csrf_field() }}
-                <div class="form-group" style="margin-bottom:0px;">
-                    <label for="exampleInputPrice">Name</label>
-                    <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="" name="name" value="">
-                    <span class="error" id="errorname" ></span>
-                </div>
-                <div class="form-group">
+                <div class="row">
+                    <div class="form-group col-md-6" style="margin-bottom:0px;">
+                        <label for="exampleInputPrice" class="required-field">Name</label>
+                        <input type="name" class="form-control" id="name" name="name" value="" required>
+                        <span class="error" id="errorname" ></span>
+                    </div>
+                    <div class="form-group col-md-6">
                     <label for="exampleInputPrice">Japanese Name</label>
                     <input type="text" class="form-control" id="japanese_name" placeholder="" name="japanese_name" value="">
+                </div>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary" style="background:#7DCE4C;border:1px solid #7DCE4C">Submit</button>
                 </div>
             </form>
         </div>
-        <div class="col-mod-3 col-lg-3"> </div>
     </div>
     <div class="clear"></div><hr/>
     <div class="table-responsive col-mod-12">
@@ -146,22 +147,5 @@
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
-</script>
-
-<script>
-    //======== Raisul =======//
-    //=====form validation=========//
-    $('#clientsForm').submit((event)=>{
-        const name =  $('#name').val();
-        if(name == ''){
-            $('#errorname').html("Please Enter Client's Name");
-            return false;
-        }
-        else{
-            return true;
-        }
-    });
-
-
 </script>
 @stop

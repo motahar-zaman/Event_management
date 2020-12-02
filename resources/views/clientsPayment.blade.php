@@ -7,7 +7,6 @@
         input:focus {
             outline: 0 !important;
         }
-
     </style>
 @stop
 
@@ -35,7 +34,7 @@
                         <input id="editId" name="editId" type="hidden" value='{{isset($clientsPayment->id)?$clientsPayment->id:" "}}'>
                         <div class="form-group row col-md-12" >
                             <div class="col-md-4" >
-                                <label for="exampleInputPrice">Client Name</label>
+                                <label for="exampleInputPrice"  class="required-field">Client Name</label>
                                 <select class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="clients_name_id" name="clients_name_id" onchange="getProjects()" required>
                                     @if(isset($clientsPayment->clients_name_id))
                                         <option value="{{$clientsPayment->clients_name_id}}">{{ $clientsPayment->clients->name }}</option>
@@ -66,7 +65,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputPrice">Payment(BDT)</label>
+                                    <label for="exampleInputPrice" class="required-field">Payment(BDT)</label>
                                     <input type="number" step="0.01" class="form-control" id="Payments_bdt" name="payment_bdt" value="{{isset($clientsPayment->payment_bdt)?$clientsPayment->payment_bdt:''}}" required>
                                     <span class='error' id="Payments_bdt_error"></span>
                                 </div>
@@ -90,7 +89,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="note">Note</label>
-                                    <textarea class="form-control" id="note" placeholder="" name="note">{{isset($clientsPayment->note)?$clientsPayment->note:''}}</textarea>
+                                    <textarea class="form-control" id="note" name="note">{{isset($clientsPayment->note)?$clientsPayment->note:''}}</textarea>
                                     <span class='error' id="note_error"></span>
                                 </div>
                             </div>
@@ -193,23 +192,6 @@
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
         });
-
-        /*$('#ProjectsForm').submit((event)=>{
-            const clientsname =  $('#clients_name_id').val();
-            const Payments_bdt =  $('#Payments_bdt').val();
-            if(clientsname == 0 || clientsname==''){
-                $('#clientsNameerror').html('Please Select Clients Name');
-                return false;
-            }
-
-            else if(Payments_bdt == '' ){
-                $('#Payments_bdt_error').html('Enter payment in BDt');
-                return false;
-            }
-            else{
-                return true;
-            }
-        });*/
 
         function getProjects(){
             let clientId = $('#clients_name_id').val();
