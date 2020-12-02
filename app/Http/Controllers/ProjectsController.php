@@ -15,7 +15,6 @@ class ProjectsController extends Controller
 
     }
 
-    //====Projects List======//
     public function index()
     {
         $clients = Clients::where('status',1)->get();
@@ -23,11 +22,11 @@ class ProjectsController extends Controller
         return view('projects',['projects'=> $projects,'clients'=>$clients]);
     }
 
-    //====Add Projects======//
+
     public function addProjects(Request $request){
         $projects = new Projects;
 
-        $projects->project_name = $request->projectName;
+        $projects->name = $request->projectName;
         $projects->clients_name_id = $request->clientName;
         $projects->version_control = $request->versionControl;
         $projects->repository = $request->repository;
@@ -36,7 +35,7 @@ class ProjectsController extends Controller
         $projects->save();
         return redirect()->back()->with( 'success' , 'Successfully created new projects.');
     }
-    //====status Change======//
+
     public function status(Request $request){
         $status = Projects::where('id',$request->statusId)->first();
         if($status->status == 1){
