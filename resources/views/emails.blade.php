@@ -45,7 +45,7 @@
                                     <select class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="projectName" name="projectName">
                                         <option value="0">Select</option>
                                         @foreach($projects as $project)
-                                            <option value="{{$project->projects_name}}">{{$project->projects_name}}</option>
+                                            <option value="{{$project->name}}">{{$project->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

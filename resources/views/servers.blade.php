@@ -44,7 +44,7 @@
                             <select class="custom-select-client " style="border:1px solid #ccc; height:38px; width:100%" id="projectName" name="projectName">
                                 <option value="0">Select</option>
                                 @foreach($projects as $project)
-                                    <option value="{{$project->projects_name}}">{{$project->projects_name}}</option>
+                                    <option value="{{$project->name}}">{{$project->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -128,7 +128,7 @@
                         <tr role="row" cla  ss="odd">
                             <td>{{ $data->created_at }}</td>
                             <td>{{ $data->client_name }}</td>
-                            <td>{{ $data->project_name }}</td>
+                            <td>{{ $data->name }}</td>
                             <td>{{ $data->ip_address }}</td>
                             <td>{{ $data->url }}</td>
                             <td>{{ $data->user_name }}</td>
