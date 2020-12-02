@@ -21,16 +21,15 @@ class ClientsPaymentsController extends Controller
         $clients = Clients::where('status',1)->get();
         $projects = Projects::where('status',1)->get();
         $clientsPayment = ClientsPayments::orderBy('created_at','desc')->get();
-        //dd($clientsPayment[0]->projects);
-        return view('clientsPayment',['projects' => $projects, 'clients' =>$clients, 'clientsPayment' => $clientsPayment]);
+        return view('clientsPayment',['projects' => $projects, 'clients' =>$clients, 'clientsPayments' => $clientsPayment]);
     }
 
     public function getProjects(Request $request)
     {
         $projects = Projects::where('status',1)->where('clients_name_id',$request->id)->get();
-        $projects_view = '<option value="0">Select</option>';
+        $projects_view = '<option value="">Select</option>';
         foreach($projects as $pro){
-            $projects_view .='<option value="'.$pro->id.'">'.$pro->projects_name.'</option>';
+            $projects_view .='<option value="'.$pro->id.'">'.$pro->name.'</option>';
         }
         return $projects_view;
     }
@@ -42,6 +41,7 @@ class ClientsPaymentsController extends Controller
             $clientsPayments->clients_name_id = $request->clients_name_id;
             $clientsPayments->payment_usd = $request->payment_usd;
             $clientsPayments->payment_bdt = $request->payment_bdt;
+            $clientsPayments->payment_jpy = $request->payment_jpy;
             $clientsPayments->save();
             return redirect()->back()->with( 'success' , 'Successfully edited your Client Payment.');
 
@@ -51,6 +51,7 @@ class ClientsPaymentsController extends Controller
             $clientsPayments->clients_name_id = $request->clients_name_id;
             $clientsPayments->payment_usd = $request->payment_usd;
             $clientsPayments->payment_bdt = $request->payment_bdt;
+            $clientsPayments->payment_jpy = $request->payment_jpy;
             $clientsPayments->save();
             return redirect()->back()->with( 'success' , 'Successfully created new Client Payment.');
         }
@@ -61,7 +62,7 @@ class ClientsPaymentsController extends Controller
         $projects = Projects::where('status',1)->get();
         $clientsPayment = ClientsPayments::where('id',$request->id)->first();
         $clientsPayments = ClientsPayments::orderBy('created_at','desc')->get();
-        return view('clientsPayments',['projects'=> $projects,'clients'=>$clients,'clientsPayments'=>$clientsPayments,'clientsPayment'=>$clientsPayment]);
+        return view('clientsPayment',['projects'=> $projects,'clients'=>$clients,'clientsPayments'=>$clientsPayments,'clientsPayment'=>$clientsPayment]);
     }
 
     public function deleteClientsPayments(Request $request){
