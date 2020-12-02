@@ -28,12 +28,12 @@
     @else
         <div class=""></div>
     @endif
-    
+
     <div class="col-mod-12">
         <div class="col-mod-3 col-lg-3">
             <h3 class="box-title text-success m-b-0">Clients</h3>
             <p class="text-muted m-b-30">List of all Clients</p>
-        </div>        
+        </div>
         <div class="col-mod-4 col-lg-4">
             <form action="{{route('add-clients')}}" method="post" enctype="multipart/form-data" id="clientsForm">
                 {{ csrf_field() }}
@@ -49,15 +49,16 @@
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary" style="background:#7DCE4C;border:1px solid #7DCE4C">Submit</button>
                 </div>
-            </form>                
+            </form>
         </div>
-        <div class="col-mod-3 col-lg-3"> </div>        
-    </div> 
+        <div class="col-mod-3 col-lg-3"> </div>
+    </div>
     <div class="clear"></div><hr/>
     <div class="table-responsive col-mod-12">
         <table id="myTable" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="myTable_info">
             <thead>
                 <tr role="row">
+                    <th > Date </th>
                     <th > Name </th>
                     <th >Japanese Name</th>
                     <th >status</th>
@@ -66,27 +67,28 @@
             <tbody>
                 @foreach($clients as $k => $data)
                 <tr role="row" cla  ss="odd">
+                    <td>{{ $data->created_at }}</td>
                     <td>{{ $data->name }}</td>
                     <td>{{ $data->japanese_name }}</td>
                     @if($data->status==0)
-                        <td> 
+                        <td>
                             <form action="{{route('clients-status-change')}}" method="post">
                                 <!-- <input id="{{$data->id}}" name="{{$data->id}}" type="hidden" value='{{$data->id}}'/> -->
                                 <input id="statusId" name="statusId" type="hidden" value='{{$data->id}}'/>
                                 <button type="submit" class="btn btn-danger">Disabled</button>
-                            </form> 
+                            </form>
                         </td>
                     @else
-                        <td> 
+                        <td>
                             <form action="{{route('clients-status-change')}}" method="post">
                                 <input id="statusId" name="statusId" type="hidden" value='{{$data->id}}'/>
                                 <button type="submit" class="btn btn-success" >Enabled</button>
-                            </form>    
+                            </form>
                         </td>
                     @endif
                 </tr>
                 @endforeach
-            </tbody> 
+            </tbody>
         </table>
     </div>
 </div>
@@ -142,7 +144,7 @@
     });
 
     $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip(); 
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
 
@@ -160,6 +162,6 @@
         }
     });
 
-  
+
 </script>
 @stop
