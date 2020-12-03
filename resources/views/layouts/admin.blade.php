@@ -146,7 +146,7 @@
                         <a href="{{route('client-server')}}" class="waves-effect"><i class="ti-settings fa-fw"></i><span class="hide-menu">Server Credentials</span></a>
                     </li>
                     <li>
-                        <a href="{{route('client-domain')}}" class="waves-effect"><i class="ti-settings fa-fw"></i><span class="hide-menu">Domain Control</span></a>
+                        <a href="{{route('client-domain')}}" class="waves-effect"><i class="ti-settings fa-fw"></i><span class="hide-menu">Domain Credentials</span></a>
                     </li>
                     <li>
                         <a href="{{route('client-site')}}" class="waves-effect"><i class="ti-settings fa-fw"></i><span class="hide-menu">Third Party Sites</span></a>
@@ -219,13 +219,11 @@
     <script src="{{Request::root()}}/assets/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{Request::root()}}/assets/js/app.js') }}"></script>
     @yield('script')
-<script>
-    $('.datepicker').datepicker({
-        format: 'yyyy-mm-dd'
-    });
-</script>
+    <script>
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    </script>
 </body>
 
-
-<!-- Mirrored from wrappixel.com/ampleadmin/ampleadmin-html/ampleadmin-minimal/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Aug 2017 13:45:35 GMT -->
 </html>

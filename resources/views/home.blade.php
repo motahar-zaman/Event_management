@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-6 col-xs-12">
                     <div class="white-box analytics-info">
-                        <h5><a href="{{ route('client-domain') }}"><i class="dashboard-icon fa-fw ti-settings text-info"></i>Domain Control</a></h5>
+                        <h5><a href="{{ route('client-domain') }}"><i class="dashboard-icon fa-fw ti-settings text-info"></i>Domain Credentials</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-xs-12">
@@ -48,11 +48,6 @@
                         <h5><a href="{{ route('client-site') }}"><i class="dashboard-icon fa-fw ti-settings text-info"></i>Third Party Sites</a></h5>
                     </div>
                 </div>
-                {{--<div class="col-lg-4 col-sm-6 col-xs-12">
-                    <div class="white-box analytics-info">
-                        <h5><a href="{{ route('') }}"><i class="dashboard-icon fa-fw ti-settings text-info"></i></a></h5>
-                    </div>
-                </div>--}}
             </div>
         </div>
     </div>
