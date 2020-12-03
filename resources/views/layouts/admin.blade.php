@@ -219,6 +219,11 @@
     <script src="{{Request::root()}}/assets/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{Request::root()}}/assets/js/app.js') }}"></script>
     @yield('script')
+<script>
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+</script>
 </body>
 
 
