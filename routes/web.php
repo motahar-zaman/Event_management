@@ -56,6 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/add-expenses', 'ExpensesController@addExpenses')->name('add-expenses');
     Route::get('/expenses-edit', 'ExpensesController@editExpenses')->name('edit-expenses');
     Route::get('/expenses-delete/{id}', 'ExpensesController@deleteExpenses')->name('expenses-delete');
+    Route::get('/expenses-image/{img}', 'ExpensesController@showImage')->name('expenses-image');
 
     //Email Credentials
     Route::get('/email', 'EmailController@index')->name('client-email');
