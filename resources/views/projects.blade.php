@@ -99,7 +99,7 @@
                     <td>{{ $data->name }}</td>
                     <td>{{ $data->clients->name }}</td>
                     <td>{{ $data->version_control }}</td>
-                    <td>{{ $data->repository }}</td>
+                    <td>@if(isset($data->repository)) <a target="_blank" href="{{ $data->repository }}">{{ $data->repository }}</a> @endif</td>
                     <td>{{ $data->note }}</td>
                     @if($data->status==0)
                         <td>

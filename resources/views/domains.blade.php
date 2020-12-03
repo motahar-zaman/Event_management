@@ -113,10 +113,10 @@
                         <td>{{ $data->created_at }}</td>
                         <td>{{ $data->client_name }}</td>
                         <td>{{ $data->project_name }}</td>
-                        <td>{{ $data->url }}</td>
+                        <td>@if(isset($data->url)) <a target="_blank" href="{{ $data->url }}">{{ $data->url }}</a> @endif</td>
                         <td>{{ $data->user_name }}</td>
                         <td>{{ $data->password }}</td>
-                        <td>{{ $data->domain }}</td>
+                        <td>@if(isset($data->domain)) <a target="_blank" href="{{ $data->domain }}">{{ $data->domain }}</a> @endif</td>
                         <td>{{ $data->registration_date }}</td>
                         <td>{{ $data->expiry_date }}</td>
                         <td>{{ $data->note}}</td>

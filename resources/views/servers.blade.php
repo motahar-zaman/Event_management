@@ -130,11 +130,11 @@
                             <td>{{ $data->client_name }}</td>
                             <td>{{ $data->project_name }}</td>
                             <td>{{ $data->ip_address }}</td>
-                            <td>{{ $data->url }}</td>
+                            <td>@if(isset($data->url)) <a target="_blank" href="{{ $data->url }}">{{ $data->url }}</a> @endif</td>
                             <td>{{ $data->user_name }}</td>
                             <td>{{ $data->password }}</td>
                             <td>{{ $data->port }}</td>
-                            <td>{{ $data->db_link }}</td>
+                            <td>@if(isset($data->db_link)) <a target="_blank" href="{{ $data->db_link }}">{{ $data->db_link }}</a> @endif</td>
                             <td>{{ $data->db_user }}</td>
                             <td>{{ $data->db_password }}</td>
                             <td>{{ $data->note}}</td>
