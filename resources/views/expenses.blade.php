@@ -20,6 +20,13 @@
             </ul>
         </div>
     @endif
+    @if (isset($success))
+        <div class="alert alert-success">
+            <ul>
+                <li class="text-center">{{ $success }}</li>
+            </ul>
+        </div>
+    @endif
 
     <div class="col-mod-12">
         <div class="col-mod-3 col-lg-3">
@@ -37,7 +44,7 @@
                         <span class='error' id="amount_error" ></span>
                     </div>
                     <div class="form-group col-md-4 col-lg-4">
-                        <label for="featured_image">Image</label> <br>
+                        <label for="featured_image">Receipt Image</label> <br>
                         <input type="file" id="file1" class="form-control required d-none image" name="image">
                         <span id="select_file" class="ml-3"> {{isset($expenseses->receipt)?$expenseses->receipt:''}}</span>
                         <small class="text-danger msgimage"></small>
@@ -72,7 +79,7 @@
                     <td>{{ $data->created_at }}</td>
                     <td>{{ $data->amount }}</td>
                     <td>{{ $data->purpose }}</td>
-                    <td>{{ $data->receipt }}</td>
+                    <td>@if(isset($data->receipt)) <a target="_blank" href="{{ route('expenses-image', $data->receipt) }}">See Receipt</a> @else {{"No Receipt"}} @endif</td>
                     <td role="row">
                         <button class="btn btn-primary">
                             <a href="{{route('edit-expenses', ['id' => $data->id])}}" style="color:#fff">Edit</a>

@@ -15,17 +15,16 @@ class ExpensesController extends Controller
 
     }
 
-    //====Expenses List======//
-    public function index()
-    {    
+    public function index(Request $request)
+    {
         $expenses = Expenses::orderBy('created_at','desc')->get();
-        return view('expenses',['expenses'=> $expenses]);
+        if(isset($request->success))
+            return view('expenses',['expenses'=> $expenses, 'success' => $request->success]);
+        else
+            return view('expenses',['expenses'=> $expenses]);
     }
 
-    //====Add Expenses======//
     public function addExpenses(Request $request){
-
-
         if($request->editId){
             $expenses = Expenses::find($request->editId);
             $expenses->amount = $request->amount;
@@ -34,42 +33,42 @@ class ExpensesController extends Controller
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension(); // getting image extension
                 $name =time().'.'.$extension;
-                $file->move(public_path().'/images/'.$name, 60);
+                $file->move(public_path().'/images/',$name);
                 $expenses->receipt = $name;
             }
-            else{
-                $expenses->receipt = $expenses->receipt;
-            }
-
             $expenses->save();
-            return redirect()->back()->with( 'success' , 'Successfully edited expenses.');
-        }else{
+            $msg = "Successfully edited expenses";
+        }
+        else{
             $expenses = new Expenses;
             $expenses->amount = $request->amount;
             $expenses->purpose = $request->purpose;
-            $name = '';
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension(); // getting image extension
                 $name =time().'.'.$extension;
-                $file->move(public_path().'/images/'.$name, 60);
+                $file->move(public_path().'/images/',$name);
+                $expenses->receipt = $name;
             }
-            $expenses->receipt = $name;
             $expenses->save();
-            return redirect()->back()->with( 'success' , 'Successfully entered new expenses.');
+            $msg = "Successfully entered new expenses";
         }
+        return redirect()->route('expenses-list', ['success' => $msg]);
     }
 
-    //====Edit Expenses======//
     public function editExpenses(Request $request){
         $expenseses = Expenses::where('id',$request->id)->first();
         $expenses = Expenses::orderBy('created_at','desc')->get();
         return view('expenses',['expenseses'=>$expenseses,'expenses'=>$expenses]);
     }
 
-    //====Delete Expenses======//
     public function deleteExpenses(Request $request){
         $expenses = Expenses::find($request->id)->delete();
         return redirect()->back()->with( 'success' , 'Successfully deleted your expenses.');
+    }
+
+    public function showImage(Request $request){
+        $path = url('/images/'.$request->img);
+        return view('showImage',['path'=>$path]);
     }
 }
