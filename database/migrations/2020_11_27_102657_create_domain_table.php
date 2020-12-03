@@ -21,8 +21,8 @@ class CreateDomainTable extends Migration
             $table->string('user_name',255);
             $table->string('password',255);
             $table->string('domain',255);
-            $table->dateTime('registration_date');
-            $table->dateTime('expiry_date');
+            $table->date('registration_date');
+            $table->date('expiry_date');
             $table->text('note')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
