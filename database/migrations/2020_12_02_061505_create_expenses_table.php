@@ -18,6 +18,7 @@ class CreateExpensesTable extends Migration
             $table->double("amount",10,2);
             $table->text("purpose")->nullable();
             $table->string("receipt",255)->nullable();
+            $table->date("transaction_date");
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

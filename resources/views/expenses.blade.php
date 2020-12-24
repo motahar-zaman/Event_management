@@ -7,7 +7,6 @@
         input:focus {
             outline: 0 !important;
         }
-
     </style>
 @stop
 
@@ -38,25 +37,34 @@
                 {{ csrf_field() }}
                 <div class="row col-md-12">
                     <input id="editId" name="editId" type="hidden" value='{{isset($expenseses->id)?$expenseses->id:" "}}'>
-                    <div class="form-group col-md-4 col-lg-4" style="margin-bottom:0px;">
-                        <label for="exampleInputPrice" class="required-field">Amount</label>
-                        <input type="number" step=".01" class="form-control" id="amount" name="amount" value="{{isset($expenseses->amount)?$expenseses->amount:''}}" required>
-                        <span class='error' id="amount_error" ></span>
+                    <div class="row col-md-12">
+                        <div class="form-group col-md-4 col-lg-4" style="margin-bottom:0px;">
+                            <label for="exampleInputPrice" class="required-field">Amount</label>
+                            <input type="number" step=".01" class="form-control" id="amount" name="amount" value="{{isset($expenseses->amount)?$expenseses->amount:''}}" required>
+                            <span class='error' id="amount_error" ></span>
+                        </div>
+                        <div class="form-group col-md-4 col-lg-4">
+                            <label for="featured_image">Receipt Image</label> <br>
+                            <input type="file" id="file1" class="form-control required d-none image" name="image">
+                            <span id="select_file" class="ml-3"> {{isset($expenseses->receipt)?$expenseses->receipt:''}}</span>
+                            <small class="text-danger msgimage"></small>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <label for="transaction_date" class="required-field">Transaction Date</label>
+                            <input type="text" class="datepicker datepicker-size" id="transaction_date" name="transaction_date" value="{{isset($expenseses->transaction_date) ? $expenseses->transaction_date:''}}" required>
+                            <span class='error' id="transaction_date_error" ></span>
+                        </div>
                     </div>
-                    <div class="form-group col-md-4 col-lg-4">
-                        <label for="featured_image">Receipt Image</label> <br>
-                        <input type="file" id="file1" class="form-control required d-none image" name="image">
-                        <span id="select_file" class="ml-3"> {{isset($expenseses->receipt)?$expenseses->receipt:''}}</span>
-                        <small class="text-danger msgimage"></small>
+                    <div class="row col-md-12">
+                        <div class="col-md-5 col-lg-5">
+                            <label for="exampleInputPrice" class="required-field">Purpose</label>
+                            <textarea type="text" class="form-control" id="purpose" name="purpose" required>{{isset($expenseses->purpose)?$expenseses->purpose:''}}</textarea>
+                            <span class='error' id="purpose_error" ></span>
+                        </div>
+                        <div class="size col-md-4 text-center">
+                            <button type="submit" class="btn btn-primary" style="background:#7DCE4C;border:1px solid #7DCE4C">Submit</button>
+                        </div>
                     </div>
-                    <div class="form-group col-md-4 col-lg-4">
-                        <label for="exampleInputPrice" class="required-field">Purpose</label>
-                        <textarea type="text" class="form-control" id="purpose" name="purpose" required>{{isset($expenseses->purpose)?$expenseses->purpose:''}}</textarea>
-                        <span class='error' id="purpose_error" ></span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary" style="background:#7DCE4C;border:1px solid #7DCE4C">Submit</button>
                 </div>
             </form>
         </div>
@@ -66,17 +74,19 @@
         <table id="myTable" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="myTable_info">
             <thead>
                 <tr role="row">
-                    <th > Date </th>
-                    <th >Amount</th>
-                    <th >Purpose</th>
-                    <th >Receipt</th>
-                    <th >Action</th>
+                    <th> Date </th>
+                    <th> Transaction Date </th>
+                    <th> Amount </th>
+                    <th> Purpose </th>
+                    <th> Receipt </th>
+                    <th> Action </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($expenses as $k => $data)
                 <tr role="row" class="odd">
                     <td>{{ $data->created_at }}</td>
+                    <td>{{$data->transaction_date}}</td>
                     <td>{{ $data->amount }}</td>
                     <td>{{ $data->purpose }}</td>
                     <td>@if(isset($data->receipt)) <a target="_blank" href="{{ route('expenses-image', $data->receipt) }}">See Receipt</a> @else {{"No Receipt"}} @endif</td>

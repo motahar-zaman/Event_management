@@ -29,6 +29,7 @@ class ExpensesController extends Controller
             $expenses = Expenses::find($request->editId);
             $expenses->amount = $request->amount;
             $expenses->purpose = $request->purpose;
+            $expenses->transaction_date = $request->transaction_date;
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension(); // getting image extension
@@ -43,6 +44,7 @@ class ExpensesController extends Controller
             $expenses = new Expenses;
             $expenses->amount = $request->amount;
             $expenses->purpose = $request->purpose;
+            $expenses->transaction_date = $request->transaction_date;
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension(); // getting image extension

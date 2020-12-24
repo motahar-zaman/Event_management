@@ -70,11 +70,11 @@
                         </div>
                         <div class="col-md-3">
                             <label for="reg" class="required-field">Registration Date</label>
-                            <input type="text" class="custom-select-client datepicker" style="border:1px solid #ccc; height:38px; width:100%" id="reg" name="reg" required/>
+                            <input type="text" class="datepicker-size datepicker" id="reg" name="reg" required/>
                         </div>
                         <div class="col-md-3">
                             <label for="expire" class="required-field">Expiry Date</label>
-                            <input type="text" class="custom-select-client datepicker" style="border:1px solid #ccc; height:38px; width:100%" id="expire" name="expire" required/>
+                            <input type="text" class="datepicker-size datepicker" id="expire" name="expire" required/>
                         </div>
                     </div>
 
